@@ -16,6 +16,7 @@ public class SieveOfEratosthenes {
                 }
             }
         }
+        for(int i = 0 ; i<n ; i++)
             if (list.get(i)==true){
                 System.out.println(i);
             }
