@@ -5,23 +5,24 @@ public class LeftRotateAnArrayByD {
             System.out.println(arr[i]);
         }
         System.out.println("After left rotation:");
-        leftRotate(arr, arr.length, 3);
+        rotateArray(arr, arr.length, 3);
         for(int i = 0 ; i<arr.length;i++){
             System.out.println(arr[i]);
         }
     }
-    static void leftRotate(int arr[], int n, int d){
-        reverse(arr, 0, d-1);
-        reverse(arr, d, n-1);
-        reverse(arr, 0, n-1);
-    }
-    static void reverse(int arr[], int low, int high){
-        while (low<high) {
-            int temp = arr[low];
-            arr[low] = arr[high];
-            arr[high] = temp;
-            low++;
-            high--;
+    static void rotateArray(int[] arr, int n, int k) {
+        if (k == 0) {
+            return;
         }
+ 
+        // Rotate the array to the right by one position
+        int temp = arr[n - 1];
+        for (int i = n - 1; i > 0; i--) {
+            arr[i] = arr[i - 1];
+        }
+        arr[0] = temp;
+ 
+        // Recursively rotate the remaining elements k-1 times
+        rotateArray(arr, n, k - 1);
     }
 }
